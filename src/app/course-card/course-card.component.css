@@ -1,0 +1,8 @@
+.course-card.beginner{
+    background-color: lightsalmon;
+    text-decoration: solid;
+}
+
+.course-card.advanced{
+    background-color:lightgrey;
+}

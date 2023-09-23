@@ -1,0 +1,132 @@
+<div class="top-menu">
+  <img
+    class="logo"
+    src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
+  />
+</div>
+
+<!-- Pipes-->
+
+<!-- <div>
+  startDate: {{ startDate | date: "MMM-dd-yyyy" }}
+  <hr />
+  price:{{ price | number: "3.3-5" }}
+  <hr />
+  price:{{ price | currency: "GBP" }}
+  <hr />
+  rate:{{ rate | percent }}
+</div> -->
+<!--pipes-->
+<div class="courses" #container>
+  <!--{{coursesData|json}}
+   <div *ngFor="let pair of coursesData[1]|keyvalue">
+        {{"key = "+pair.key +": value ="+pair.value}} 
+      
+    </div>-->
+  <div *ngFor="let course of coursesData; index as i">
+    <course-card
+      [course]="course"
+      (courseSelected)="onRecieve($event)"
+      [cardIndex]="i + 1"
+    >
+    </course-card>
+  </div>
+
+  <!--<div class="course-card" *ngFor="let course of coursesData index as i;first as isFirst;last as isLast;even as isEven;odd as isOdd" > 
+                     
+        <course-card [course] = "course"
+                     [class.is-first] ="isFirst" 
+                     [class.is-last] ="isLast" 
+                     [class.is-even] ="isEven" 
+                     [class.is-odd] ="isOdd" 
+         (courseSelected)="onRecieve($event)" [cardIndex]="i+1"> </course-card>
+    </div> -->
+
+  <!-- Start View Child and View Children-->
+  <!-- <course-card
+    #card1
+    [course]="coursesData[0]"
+    (courseSelected)="onRecieve($event)"
+    [cardIndex]="1"
+  ></course-card>
+  <course-card
+    [course]="coursesData[1]"
+    (courseSelected)="onRecieve($event)"
+    [cardIndex]="2"
+  ></course-card> -->
+  <!-- <div
+    class="course-card"
+    *ngFor="
+      let course of coursesData;
+      index as i;
+      first as isFirst;
+      last as isLast;
+      even as isEven;
+      odd as isOdd
+    "
+  >
+    <course-card
+      [course]="course"
+      [class.is-first]="isFirst"
+      [class.is-last]="isLast"
+      [class.is-even]="isEven"
+      [class.is-odd]="isOdd"
+      (courseSelected)="onRecieve($event)"
+      [cardIndex]="i + 1"
+    >
+    </course-card>
+  </div> -->
+  <!-- End View Child and View Children-->
+
+  <!-- start content Projection -->
+  <!-- <course-card
+    #card1
+    [course]="coursesData[2]"
+    (courseSelected)="onRecieve($event)"
+    [cardIndex]="1"
+  >
+   
+    <course-image [courseImage]="coursesData[2]"> </course-image>
+    <course-image [courseImage]="coursesData[3]"> </course-image>
+    <course-image [courseImage]="coursesData[4]"> </course-image>
+    <div class="course-description">
+      {{ coursesData[2].longDescription }}
+    </div>
+  </course-card> -->
+  <!-- end content Projection -->
+
+  <!--start ng Template -->
+  <!-- <course-card
+    [course]="coursesData[0]"
+    (courseSelected)="onRecieve($event)"
+    [cardIndex]="1"
+    [noImageTPL]="noImage"
+    (toggleEmitter)="directiveCalled($event)"
+  ></course-card>
+
+  <ng-template #noImage let-coursename="description">
+    <p (dblclick)="highlight.toggle()">
+      {{ coursename + ": " }}No Image is available!!
+    </p>
+  </ng-template> -->
+  <!--end ng Template -->
+
+  <!--  directive : defualt (If,for,swich)-->
+  <!-- <course-card
+    highlighted
+    #highlight="h1"
+    [course]="coursesData[1]"
+    (courseSelected)="onRecieve($event)"
+    [cardIndex]="1"
+    (toggleEmitter)="directiveCalled($event)"
+  >
+    <img
+      (dblclick)="highlight.toggle()"
+      width="300"
+      alt="Angular Logo"
+      [src]="coursesData[0].iconUrl"
+      *ngxUnless="coursesData[0].iconUrl"
+    />
+  </course-card> -->
+  <!--  directive : defualt (If,for,swich)-->
+</div>
